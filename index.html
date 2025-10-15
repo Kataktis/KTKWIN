@@ -20,33 +20,6 @@
       color: var(--text-color);
     }
 
-/* Barre de navigation */
-nav {
-  background: rgba(255, 255, 255, 0.1); /* effet translucide comme Apple */
-  backdrop-filter: blur(10px); /* flou derrière */
-  border-radius: 50px; /* arrondi très prononcé pour effet ovale */
-  padding: 10px 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  max-width: 90%;
-  margin: 20px auto; /* centre la barre horizontalement */
-  box-shadow: 0 4px 20px rgba(000, 000, 000, 0.2); /* petite ombre */
-}
-
-/* Liens de navigation */
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 15px 15px;
-  border-radius: 30px; /* liens arrondis aussi */
-  transition: background 0.3s;
-}
-
-nav a:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
 
 
 
@@ -339,12 +312,15 @@ nav a:hover {
 <body>
 
 
+<header>
 
-  <nav>
+
+
   <div class="logo-container">
-    <img src="logo.png" alt="Logo Kataktis">
-    <h1>Team KATAKTIS</h1>
+    <img src="logo.png" alt="Logo KTK">
+    <h2>KATAKTIS ESPORT</h2>
   </div>
+  <nav>
     <a href="#accueil">Accueil</a>
     <a href="#reseaux">Réseaux</a>
     <a href="#joueurs">Fortnite</a>
@@ -353,8 +329,10 @@ nav a:hover {
     <a href="#tournois">Tournois</a>
     <a href="#effectif">Effectif</a>
     <a href="#recrutement">Recrutement</a>
-</nav>
 
+  </nav>
+
+</header>
 
 
 
