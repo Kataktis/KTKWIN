@@ -324,10 +324,11 @@
     <a href="#accueil">Accueil</a>
     <a href="#reseaux">Réseaux</a>
     <a href="#joueurs">Fortnite</a>
-    <a href="#rocket_league">Rocket League</a>
-    <a href="#brawl_stars">Brawl Stars</a>
     <a href="#effectif">Effectif</a>
-    <a href="#recrutement">Recrutement</a>
+    <a href="#brawl_stars">Brawl Stars</a>
+    <a href="#rocket_league">Rocket League</a>
+
+
 
   </nav>
 
@@ -1183,101 +1184,6 @@
 
 
 
-
-
-
-
-<section id="recrutement" class="section">
-  <h2 tabindex="-1">Rejoins la team ou collabore avec nous</h2>
-
-  <!-- Partie 1 : Candidature joueur -->
-  <div style="margin-bottom: 50px;">
-    <h3 style="color: var(--team-color); border-left: 4px solid var(--team-color); padding-left: 10px;">🎮 Candidature Joueur</h3>
-    <form id="recrutement-form" style="max-width: 600px; margin: auto;">
-
-      <label for="discord">Pseudo Discord</label>
-      <input id="discord" type="text" name="discord" placeholder="Ex: KTK_Yass" required="">
-
-      <label for="pr">PR / Division</label>
-      <input id="pr" type="text" name="pr" placeholder="Ex: 1k2 PR, Div 2" required="">
-
-      <label for="tracker">Tracker</label>
-      <input id="tracker" type="text" name="tracker" placeholder="..." required="">
-
-      <label for="presentation">Présente-toi</label>
-      <textarea id="presentation" name="presentation" placeholder="Parle-nous de toi" required=""></textarea>
-
-      <label for="message">Présente-ton gameplay</label>
-      <textarea id="message" name="message" placeholder="rôle, ambition, un duo ?" required=""></textarea>
-
-      <button type="submit">Envoyer ma candidature</button>
-      <p id="form-message" style="margin-top:10px;"></p>
-    </form>
-  </div>
-
-  <!-- Partie 2 : Partenariat -->
-  <div>
-    <h3 style="color: var(--team-color); border-left: 4px solid var(--team-color); padding-left: 10px;">🤝 Demande de Partenariat</h3>
-    <form id="partenaire-form" style="max-width: 600px; margin: auto;">
-
-      <label for="nom">Nom de la structure</label>
-      <input id="nom" type="text" name="nom_structure" placeholder="Nom de votre entreprise / team" required="">
-
-      <label for="email">Email</label>
-      <input id="email" type="text" name="email" placeholder="contact@votresite.com" required="">
-
-      <label for="proposition">Votre proposition</label>
-      <textarea id="proposition" name="proposition" placeholder="Expliquez-nous votre idée de partenariat..." required=""></textarea>
-
-      <button type="submit">Envoyer ma demande</button>
-      <p id="partner-message" style="margin-top:10px;"></p>
-    </form>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    // Initialisation avec ta clé publique
-    (function(){ 
-      emailjs.init("pMwdLWhRC_47k_8LL");  
-    })();
-
-    // Envoi formulaire joueur
-    document.getElementById('recrutement-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = this;
-      const msg = document.getElementById("form-message");
-
-      emailjs.sendForm('service_mj22iql', 'template_candidature', this) 
-        .then(() => {
-          msg.textContent = "✅ Candidature envoyée avec succès !";
-          msg.style.color = "green";
-          form.reset();
-        }, (error) => {
-          msg.textContent = "❌ Erreur. Réessaye.";
-          msg.style.color = "red";
-          console.error(error);
-        });
-    });
-
-    // Envoi formulaire partenaire
-    document.getElementById('partenaire-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = this;
-      const msg = document.getElementById("partner-message");
-
-      emailjs.sendForm('service_mj22iql', 'template_partenaire', this) 
-        .then(() => {
-          msg.textContent = "✅ Demande envoyée avec succès !";
-          msg.style.color = "green";
-          form.reset();
-        }, (error) => {
-          msg.textContent = "❌ Une erreur est survenue.";
-          msg.style.color = "red";
-          console.error(error);
-        });
-    });
-  </script>
-</section>
 
 <footer>
 
