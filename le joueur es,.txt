@@ -1,0 +1,59 @@
+le joueur es, 
+le joueur it, 
+le coach bs,
+partie rl,
+tournois XXX
+accueille
+
+
+fil d'actu
+
+
+  <!-- Fil d'actualité -->
+  <section id="fil-actus" style="margin: 1">
+
+
+    <div class="slide-actu">
+      <img src="actu1.jpg" alt="Actu 1">
+      <div class="actu-texte">📢 Kataktis X XEOS CUP arrive le 27 !</div>
+    </div>
+
+    <div class="slide-actu active">
+      <img src="actu2.jpg" alt="Actu 2">
+      <div class="actu-texte">🔥Rocket league !</div>
+    </div>
+
+    <div class="slide-actu">
+      <img src="actu3.jpg" alt="Actu 1">
+      <div class="actu-texte">📢 Maillot diponible sur YOKO</div>
+    </div>
+
+
+  </section>
+
+
+<!-- Tournois -->
+
+<section id="tournois" class="section">
+  <h2>Tournois</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="actu1.jpg" alt="kataktis cup" style="width:100%; border-radius:8px;">
+      <a href="https://wls.ac/tZC7EoYjse" target="_blank">
+        </a>
+      <h4>Kataktis Cup en partenaria avec XEOS</h4>
+      <p>27 Septembre</p>
+    </div>
+  </div>
+</section>
+
+    <a href="#tournois" class="nav-card">
+      <img src="tournois.jpg" alt="Tournois">
+      <div class="nav-info">
+        <h3>Tournois</h3>
+        <p>Nos compétitions à venir et passées.</p>
+      </div>
+    </a>
+
+
+    <a href="#tournois">Tournois</a>
