@@ -6,9 +6,9 @@
   <style>
     :root {
       --team-color: #FF0000;
-      --bg-color: #1a1a1a;
+      --bg-color: #000000;
       --text-color: #f5f5f5;
-      --card-bg: #2a2a2a;
+      --card-bg: #0f0f0f;
     }
 
     * { box-sizing: border-box; }
@@ -290,6 +290,60 @@
 
 
 
+/* ==== HEADER ==== */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(25, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--team-color);
+  box-shadow: 0 0 20px rgba(249, 92, 92, 0.3);
+  z-index: 1000;
+  transition: 0.4s ease;
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--team-color);
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px var(--accent-color);
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #ddd;
+  font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: var(--team-color);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--team-color);
+  text-shadow: 0 0 8px var(--accent-color);
+}
 
 
 
@@ -323,6 +377,144 @@
       const section = document.querySelector(pageId);
       if(section) section.classList.add('active');
     }
+/* ==== FORM ELEMENTS ==== */
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: bold;
+  text-align: left;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--team-color);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ==== BUTTONS ==== */
+button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(45deg, var(--team-color), var(--accent-color));
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(45deg, var(--accent-color), var(--team-color));
+  box-shadow: 0 0 20px var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* ==== MESSAGES ==== */
+#form-message, #partner-message, #coaching-message {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ==== FOOTER ==== */
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 2px solid var(--team-color);
+  background: rgba(0, 0, 0, 0.6);
+  color: #ccc;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  nav a {
+    margin: 10px 15px 0 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  header .logo {
+    font-size: 1.4rem;
+  }
+  body {
+    font-size: 0.95rem;
+  }
+}
+.news-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.news-card {
+  width: 90%;
+  max-width: 700px;
+  background: rgba(25, 0, 50, 0.7);
+  border: 1px solid rgba(168, 92, 249, 0.3);
+  border-radius: 15px;
+  padding: 20px 25px;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(168, 92, 249, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(224, 86, 253, 0.6);
+}
+
+.news-card h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px var(--team-color);
+}
+
+.news-card span {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
 
 
     window.addEventListener('hashchange', () => showPage(location.hash||'#accueil'));
@@ -434,7 +626,7 @@
     </a>
 
 
-    <a href="#recrutement" class="nav-card">
+    <a href="https://discord.com/channels/1398747281284534302/1416403899761430613" class="nav-card">
       <img src="recrutement.jpg" alt="Recrutement">
       <div class="nav-info">
         <h3>Recrutement</h3>
@@ -515,26 +707,81 @@
     </div>
   </div>
 
+  <h2>Roster K2</h2>
+
+ <div class="grid-navigation" style="justify-items:center; text-align:center;">
+
+    <a href="#K2" class="nav-card">
+      <img src="K2.jpg" alt="K2" style="max-width:300px; width:100%; height:auto;">
+      <div class="nav-info">
+        <h3></h3>
+      </div>
+    </a>
+
+    <a href="#Neroo" class="nav-card">
+      <img src="Neroo.jpg" alt="Neroo" style="max-width:300px; width:100%; height:auto;">
+      <div class="nav-info">
+        <h3></h3>
+      </div>
+    </a>
+
+    <a href="#Alex" class="nav-card">
+      <img src="Alex.jpg" alt="Alex" style="max-width:300px; width:100%; height:auto;">
+      <div class="nav-info">
+        <h3></h3>
+      </div>
+    </a>
+
+ </div>
+
   <h2>Roster Flatzou</h2>
 
  <div class="grid-navigation" style="justify-items:center; text-align:center;">
 
     <a href="#flatzou" class="nav-card">
-      <img src="flatzou.png" alt="flatzou" style="max-width:300px; width:100%; height:auto;">
+      <img src="flatzou.jpg" alt="flatzou" style="max-width:300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
     </a>
 
     <a href="#vincz" class="nav-card">
-      <img src="vincz.png" alt="vincz" style="max-width:300px; width:100%; height:auto;">
+      <img src="vincz.jpg" alt="vincz" style="max-width:300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
     </a>
 
     <a href="#zenotoa" class="nav-card">
-      <img src="zenotoa.png" alt="zenotoa" style="max-width:300px; width:100%; height:auto;">
+      <img src="zenotoa.jpg" alt="zenotoa" style="max-width:300px; width:100%; height:auto;">
+      <div class="nav-info">
+        <h3></h3>
+      </div>
+    </a>
+
+ </div>
+
+
+  <h2>Roster Flatzou</h2>
+
+ <div class="grid-navigation" style="justify-items:center; text-align:center;">
+
+    <a href="#Nyxo" class="nav-card">
+      <img src="Nyxo.jpg" alt="Nyxo" style="max-width:300px; width:100%; height:auto;">
+      <div class="nav-info">
+        <h3></h3>
+      </div>
+    </a>
+
+    <a href="#Shyy" class="nav-card">
+      <img src="Shyy.jpg" alt="Shyy" style="max-width:300px; width:100%; height:auto;">
+      <div class="nav-info">
+        <h3></h3>
+      </div>
+    </a>
+
+    <a href="#Arkofix" class="nav-card">
+      <img src="Arkofix.jpg" alt="Arkofix" style="max-width:300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
@@ -562,7 +809,7 @@
 
 
       <li style="color:white;">
-        <img src="zenotoa1.png" alt="zenotoa" style="height:auto; width:100%;">
+        <img src="zenotoa1.jpg" alt="zenotoa" style="height:auto; width:100%;">
         </a>
         <p></p>
       </li>
@@ -573,19 +820,19 @@
   <div class="grid">
 
     <a href="https://x.com/Zenotoa_RL" target="_blank" class="card">
-      <img src="x.png" alt="Zenotoa_RL" style="height:150px;">
+      <img src="x.jpg" alt="Zenotoa_RL" style="height:150px;">
       <h4 style="color:white;">@Zenotoa_RL</h4>
       <p style="color:white;">X (Twitter)</p>
     </a>
 
     <a href="https://www.tiktok.com/@Zenotoa_RL " target="_blank" class="card">
-      <img src="tt.png" alt="Zenotoa_RL" style="height:150px;">
+      <img src="tt.jpg" alt="Zenotoa_RL" style="height:150px;">
       <h4 style="color:white;">@Zenotoa_RL</h4>
       <p style="color:white;">TikTok</p>
     </a>
 
     <a href="https://www.twitch.tv/Zenotoa_RL" target="_blank" class="card">
-      <img src="twitch.png" alt="Zenotoa_RL" style="height:150px;">
+      <img src="twitch.jpg" alt="Zenotoa_RL" style="height:150px;">
       <h4 style="color:white;">@Zenotoa_RL</h4>
       <p style="color:white;">Twitch</p>
     </a>
@@ -625,7 +872,7 @@
 
 
       <li style="color:white;">
-        <img src="vincz1.png" alt="vincz" style="height:auto; width:100%;">
+        <img src="vincz1.jpg" alt="vincz" style="height:auto; width:100%;">
         </a>
         <p></p>
       </li>
@@ -636,19 +883,19 @@
   <div class="grid">
 
     <a href="https://x.com/FlyziY" target="_blank" class="card">
-      <img src="x.png" alt="X/Twitter" style="height:150px;">
+      <img src="x.jpg" alt="X/Twitter" style="height:150px;">
       <h4 style="color:white;">@FlyziY</h4>
       <p style="color:white;">X (Twitter)</p>
     </a>
 
     <a href="https://www.tiktok.com/@vincz.0" target="_blank" class="card">
-      <img src="tt.png" alt="TikTok" style="height:150px;">
+      <img src="tt.jpg" alt="TikTok" style="height:150px;">
       <h4 style="color:white;">@vincz.0</h4>
       <p style="color:white;">TikTok</p>
     </a>
 
     <a href="https://www.instagram.com/vincent_chb00/" target="_blank" class="card">
-      <img src="insta.png" alt="Instagram" style="height:150px;">
+      <img src="insta.jpg" alt="Instagram" style="height:150px;">
       <h4 style="color:white;">@vincent_chb00</h4>
       <p style="color:white;">Instagram</p>
     </a>
@@ -682,7 +929,7 @@
 
 
       <li style="color:white;">
-        <img src="flatzou1.png" alt="flatzou" style="height:auto; width:100%;">
+        <img src="flatzou1.jpg" alt="flatzou" style="height:auto; width:100%;">
         </a>
         <p></p>
       </li>
@@ -693,19 +940,19 @@
   <div class="grid">
 
     <a href="https://x.com/KTK_FLATZOU" target="_blank" class="card">
-      <img src="x.png" alt="X/Twitter" style="height:150px;">
+      <img src="x.jpg" alt="X/Twitter" style="height:150px;">
       <h4 style="color:white;">@KTK_FLATZOU</h4>
       <p style="color:white;">X (Twitter)</p>
     </a>
 
     <a href="https://www.tiktok.com/@flatzou.off?is_from_webapp=1&sender_device=pc" target="_blank" class="card">
-      <img src="tt.png" alt="TikTok" style="height:150px;">
+      <img src="tt.jpg" alt="TikTok" style="height:150px;">
       <h4 style="color:white;">@flatzou.off</h4>
       <p style="color:white;">TikTok</p>
     </a>
 
     <a href="https://www.youtube.com/channel/UChX7kAcViYomrLKyPMiyqrA" target="_blank" class="card">
-      <img src="yt.png" alt="Youtube" style="height:150px;">
+      <img src="yt.jpg" alt="Youtube" style="height:150px;">
       <h4 style="color:white;">@FLATZOU_KTK</h4>
       <p style="color:white;">Youtube</p>
     </a>
@@ -745,7 +992,7 @@
 
 
     <a href="#haxo" class="nav-card">
-      <img src="haxo1.png" alt="haxo">
+      <img src="haxo1.jpg" alt="haxo">
       <div class="nav-info">
         <h3>Haxo</h3>
       </div>
@@ -754,7 +1001,7 @@
 
 
     <a href="#eko" class="nav-card">
-      <img src="eko1.png" alt="eko">
+      <img src="eko1.jpg" alt="eko">
       <div class="nav-info">
         <h3>Eko</h3>
       </div>
@@ -768,7 +1015,7 @@
 
 
     <a href="#macro" class="nav-card">
-      <img src="macro1.png" alt="Recrutement">
+      <img src="macro1.jpg" alt="Recrutement">
       <div class="nav-info">
         <h3>Macro</h3>
       </div>
@@ -777,7 +1024,7 @@
 
 
     <a href="https://x.com/Yolin_Fn" class="nav-card">
-      <img src="yolin1.png" alt="yolin">
+      <img src="yolin1.jpg" alt="yolin">
       <div class="nav-info">
         <h3>Yolin</h3>
       </div>
@@ -791,7 +1038,7 @@
 
 
     <a href="#shin" class="nav-card">
-      <img src="shin1.png" alt="Shin">
+      <img src="shin1.jpg" alt="Shin">
       <div class="nav-info">
         <h3>Shin</h3>
       </div>
@@ -800,7 +1047,7 @@
 
 
     <a href="#soon" class="nav-card">
-      <img src="BS8.png" alt="soon">
+      <img src="BS8.jpg" alt="soon">
       <div class="nav-info">
         <h3></h3>
       </div>
@@ -828,7 +1075,7 @@
   <div class="grid-navigation" style="justify-items:center; text-align:center;">
 
     <a href="#yayaz" class="nav-card">
-      <img src="yayaz1.png" alt="mlody">
+      <img src="yayaz1.jpg" alt="mlody">
       <div class="nav-info">
         <h3>Yayaz</h3>
       </div>
@@ -836,7 +1083,7 @@
 
 
     <a href="#nerzox" class="nav-card">
-      <img src="nerzox1.png" alt="nerzox">
+      <img src="nerzox1.jpg" alt="nerzox">
       <div class="nav-info">
         <h3>Nerzox</h3>
       </div>
@@ -847,7 +1094,7 @@
 
 
     <a href="#soon" class="nav-card">
-      <img src="noxizz1.png" alt="soon">
+      <img src="noxizz1.jpg" alt="soon">
       <div class="nav-info">
         <h3>Noxizz</h3>
       </div>
@@ -855,7 +1102,7 @@
 
 
     <a href="#soon" class="nav-card">
-      <img src="BS8.png" alt="soon">
+      <img src="BS8.jpg" alt="soon">
       <div class="nav-info">
         <h3></h3>
       </div>
@@ -896,7 +1143,7 @@
 
       <li style="color:white;">
         <a href="https://x.com/haxofn_?s=11" target="_blank">
-        <img src="fr10.png" alt="haxo" style="height:auto; width:100%;">
+        <img src="fr10.jpg" alt="haxo" style="height:auto; width:100%;">
         </a>
         <p></p>
       </li>
@@ -933,7 +1180,7 @@
 
       <li style="color:white;">
         <a href="https://x.com/onlym4cros" target="_blank">
-        <img src="macro2.png" alt="macro" style="height:auto; width:100%;">
+        <img src="macro2.jpg" alt="macro" style="height:auto; width:100%;">
         </a>
         <p></p>
       </li>
@@ -969,7 +1216,7 @@
 
       <li style="color:white;">
         <a href="https://x.com/shinftne?s=21" target="_blank">
-        <img src="fr3.png" alt="shin" style="height:auto; width:100%;">
+        <img src="fr3.jpg" alt="shin" style="height:auto; width:100%;">
         </a>
         <p></p>
       </li>
@@ -998,7 +1245,7 @@
 
 
       <li style="color:white;">
-        <img src="fr6.png" alt="Yayaz" style="height:auto; width:100%;">
+        <img src="eko2.jpg" alt="eko" style="height:auto; width:100%;">
         </a>
         <p></p>
       </li>
@@ -1008,17 +1255,12 @@
 
   <div class="grid">
     <a href="https://x.com/Ekovskyy" target="_blank" class="card">
-      <img src="x.png" alt="X/Twitter" style="height:150px;">
+      <img src="x.jpg" alt="X/Twitter" style="height:150px;">
       <h4 style="color:white;">@Ekovskyy</h4>
       <p style="color:white;">X (Twitter)</p>
     </a>
     <a href="https://www.tiktok.com/@ekosvkyy" target="_blank" class="card">
-      <img src="tt.png" alt="TikTok" style="height:150px;">
-      <h4 style="color:white;">@ekosvkyy</h4>
-      <p style="color:white;">TikTok</p>
-    </a>
-    <a href="https://www.tiktok.com/@ekosvkyy" target="_blank" class="card">
-      <img src="tt.png" alt="TikTok" style="height:150px;">
+      <img src="tt.jpg" alt="TikTok" style="height:150px;">
       <h4 style="color:white;">@ekosvkyy</h4>
       <p style="color:white;">TikTok</p>
     </a>
@@ -1052,7 +1294,7 @@
 
 
       <li style="color:white;">
-        <img src="fr6.png" alt="Yayaz" style="height:auto; width:100%;">
+        <img src="fr6.jpg" alt="Yayaz" style="height:auto; width:100%;">
         </a>
         <p></p>
       </li>
@@ -1062,12 +1304,12 @@
 
   <div class="grid">
     <a href="https://x.com/yayaZFN" target="_blank" class="card">
-      <img src="x.png" alt="X/Twitter" style="height:150px;">
+      <img src="x.jpg" alt="X/Twitter" style="height:150px;">
       <h4 style="color:white;">@yayaZFN</h4>
       <p style="color:white;">X (Twitter)</p>
     </a>
     <a href="https://www.tiktok.com/@yayaz_fn?_t=ZN-90Omq3b7YO6&_r=1" target="_blank" class="card">
-      <img src="tt.png" alt="TikTok" style="height:150px;">
+      <img src="tt.jpg" alt="TikTok" style="height:150px;">
       <h4 style="color:white;">@yayaz_fn</h4>
       <p style="color:white;">TikTok</p>
     </a>
@@ -1102,20 +1344,20 @@
 
 
       <li style="color:white;">
-        <img src="fr4.png" alt="Nerzox" style="height:auto; width:100%;">
+        <img src="fr4.jpg" alt="Nerzox" style="height:auto; width:100%;">
         <p></p>
       </li>
 
   <div class="grid">
 
     <a href="https://x.com/nerzox35?" target="_blank" class="card">
-      <img src="x.png" alt="X/Twitter" style="height:150px;">
+      <img src="x.jpg" alt="X/Twitter" style="height:150px;">
       <h4 style="color:white;">@nerzox35?</h4>
       <p style="color:white;">X (Twitter)</p>
     </a>
 
     <a href="https://www.twitch.tv/nerzox35/" target="_blank" class="card">
-      <img src="twitch.png" alt="Twitch" style="height:150px;">
+      <img src="twitch.jpg" alt="Twitch" style="height:150px;">
       <h4 style="color:white;">@nerzox35</h4>
       <p style="color:white;">Twitch</p>
     </a>
@@ -1147,7 +1389,7 @@
 
 
     <a href="https://www.tiktok.com/@naaassim_bs?_t=ZN-90RGsYDfHOw&_r=1" class="nav-card">
-      <img src="Nassim.png" alt="Nassim" style="max-width:4300px; width:100%; height:auto;">
+      <img src="Nassim.jpg" alt="Nassim" style="max-width:4300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
@@ -1156,14 +1398,14 @@
 
 
     <a href="https://www.tiktok.com/@elyesrmili?_t=ZN-90RVIQjsiV4&_r=1" class="nav-card">
-      <img src="Shadowofnight.png" alt="Shadowofnight" style="max-width:4300px; width:100%; height:auto;">
+      <img src="Shadowofnight.jpg" alt="Shadowofnight" style="max-width:4300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
     </a>
 
     <a href="https:///" class="nav-card">
-      <img src="TXXL.png" alt="TXXL" style="max-width:4300px; width:100%; height:auto;">
+      <img src="TXXL.jpg" alt="TXXL" style="max-width:4300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
@@ -1180,21 +1422,21 @@
   <div class="grid-navigation" style="justify-items:center; text-align:center;">
 
     <a href="https://www.tiktok.com/@barth290?_r=1&_t=ZN-91SCxVC1zdP" class="nav-card">
-      <img src="Neiko.png" alt="Neiko" style="max-width:4300px; width:100%; height:auto;">
+      <img src="Neiko.jpg" alt="Neiko" style="max-width:4300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
     </a>
 
     <a href="https://www.tiktok.com/@neiko_bs?_r=1&_t=ZN-91SD3QkZyDu" class="nav-card">
-      <img src="Sual.png" alt="Sual" style="max-width:4300px; width:100%; height:auto;">
+      <img src="Sual.jpg" alt="Sual" style="max-width:4300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
     </a>
 
     <a href="https://www.tiktok.com/@lahwaa_bs?_r=1&_t=ZN-91SD4RpYOQg" class="nav-card">
-      <img src="Lahwaa.png" alt="Lahwaa" style="max-width:4300px; width:100%; height:auto;">
+      <img src="Lahwaa.jpg" alt="Lahwaa" style="max-width:4300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
@@ -1215,21 +1457,21 @@
   <div class="grid-navigation" style="justify-items:center; text-align:center;">
 
     <a href="https://www.tiktok.com/@alym230?_t=ZN-90RFFooGgeA&_r=1" class="nav-card">
-      <img src="Alym.png" alt="Alym" style="max-width:4300px; width:100%; height:auto;">
+      <img src="Alym.jpg" alt="Alym" style="max-width:4300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
     </a>
 
     <a href="https://www.tiktok.com/@baba.bs7?_t=ZN-90RFTfcQufO&_r=1" class="nav-card">
-      <img src="Baba.png" alt="Baba" style="max-width:4300px; width:100%; height:auto;">
+      <img src="Baba.jpg" alt="Baba" style="max-width:4300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
     </a>
 
     <a href="https://www.tiktok.com/@theo01pro1?_t=ZN-90SxQtau5xO&_r=1" class="nav-card">
-      <img src="Théo.png" alt="Théo" style="max-width:4300px; width:100%; height:auto;">
+      <img src="Théo.jpg" alt="Théo" style="max-width:4300px; width:100%; height:auto;">
       <div class="nav-info">
         <h3></h3>
       </div>
@@ -1259,27 +1501,27 @@
   <h2>Nos Réseaux</h2>
   <div class="grid">
     <a href="https://www.instagram.com/kataktis_esport/" target="_blank" class="card">
-      <img src="insta.png" alt="Instagram" style="height:150px;">
+      <img src="insta.jpg" alt="Instagram" style="height:150px;">
       <h4 style="color:white;">@kataktis_esport</h4>
       <p style="color:white;">Instagram</p>
     </a>
     <a href="https://x.com/KataktisS" target="_blank" class="card">
-      <img src="x.png" alt="X/Twitter" style="height:150px;">
+      <img src="x.jpg" alt="X/Twitter" style="height:150px;">
       <h4 style="color:white;">@Kataktis eSport</h4>
       <p style="color:white;">X (Twitter)</p>
     </a>
     <a href="https://www.twitch.tv/kataktisesport" target="_blank" class="card">
-      <img src="twitch.png" alt="Twitch" style="height:150px;">
+      <img src="twitch.jpg" alt="Twitch" style="height:150px;">
       <h4 style="color:white;">@KataktisEsport</h4>
       <p style="color:white;">Twitch</p>
     </a>
     <a href="https://www.youtube.com/@kataktise-sport5639" target="_blank" class="card">
-      <img src="yt.png" alt="YouTube" style="height:150px;">
+      <img src="yt.jpg" alt="YouTube" style="height:150px;">
       <h4 style="color:white;">@Kataktis E-sport</h4>
       <p style="color:white;">YouTube</p>
     </a>
     <a href="https://www.tiktok.com/@cryzox.esport?_t=ZN-8zYkXF36bT8&amp;_r=1" target="_blank" class="card">
-      <img src="tt.png" alt="TikTok" style="height:150px;">
+      <img src="tt.jpg" alt="TikTok" style="height:150px;">
       <h4 style="color:white;">@Kataktis.esport</h4>
       <p style="color:white;">TikTok</p>
     </a>
